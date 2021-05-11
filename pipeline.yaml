@@ -54,7 +54,7 @@ Resources:
     Type: 'AWS::CodeBuild::Project'
     Properties:
       Name: !Ref 'AWS::StackName'
-      ServiceRole: !GetAtt
+      ServiceRole: !GetAtt 
         - CodeBuildServiceRole
         - Arn
       Source:
@@ -70,7 +70,8 @@ Resources:
         Webhook: true
         FilterGroups:
           - - Type: EVENT
-              Pattern: 'PULL_REQUEST_CREATED,PULL_REQUEST_UPDATED'
+              Pattern: >-
+                PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED
             - Type: BASE_REF
               Pattern: !Sub ^refs/heads/master$
       Environment:
